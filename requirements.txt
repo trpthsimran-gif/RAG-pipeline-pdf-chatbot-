@@ -1,10 +1,31 @@
-langchain
-langchain-community
-langchain-core
-langchain-huggingface
-faiss-cpu
-sentence-transformers
-pypdf
-python-dotenv
-jupyter
-ipykernel
+# ── Core LLM & Embeddings ─────────────────────────────────────────────────────
+openai>=1.30.0
+langchain>=0.2.0
+langchain-openai>=0.1.0
+langchain-community>=0.2.0
+langchain-core>=0.2.0
+langchain-text-splitters>=0.2.0
+
+# ── LangGraph (Agentic RAG) ───────────────────────────────────────────────────
+langgraph>=0.1.0
+
+# ── Vector Store ──────────────────────────────────────────────────────────────
+faiss-cpu>=1.7.4
+
+# ── Re-ranking ────────────────────────────────────────────────────────────────
+sentence-transformers>=2.7.0
+
+# ── BM25 Retrieval ────────────────────────────────────────────────────────────
+rank-bm25>=0.2.2
+
+# ── PDF Loading ───────────────────────────────────────────────────────────────
+pypdf>=4.0.0
+
+# ── Tokenisation ─────────────────────────────────────────────────────────────
+tiktoken>=0.7.0
+
+# ── UI ────────────────────────────────────────────────────────────────────────
+gradio>=4.0.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0
