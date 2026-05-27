@@ -233,5 +233,3 @@ Built by **[Simran Tripathi]**
 
 
 ---
-
-> ⭐ If this project helped you, please give it a star — it helps others find it!
