@@ -48,6 +48,7 @@ from langchain_core.tools import tool
 from sentence_transformers import CrossEncoder
 from langgraph.graph import StateGraph, END
 import gradio as gr
+import spaces
 
 print(" Imports done")
 
@@ -116,6 +117,7 @@ pipeline = {
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
+@spaces.GPU
 def rerank_docs(query: str, docs: list, top_k: int):
     if not docs:
         return docs, []
@@ -803,6 +805,7 @@ User Question
 # ── Launch ────────────────────────────────────────────────────────────────────
 # ── Launch ────────────────────────────────────────────────────────────────────
 import gradio as gr
+import spaces
 gr.close_all()          # close any previous instance first
 
 demo.launch()
