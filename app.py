@@ -21,18 +21,18 @@ logging.getLogger("langchain").setLevel(logging.ERROR)
 logging.getLogger("langchain_community").setLevel(logging.ERROR)
 
 # ── Install dependencies ──────────────────────────────────────────────────────
-import subprocess, sys
-pkgs = [
-    "langchain", "langchain-openai", "langchain-community",
-    "langchain-text-splitters", "faiss-cpu", "tiktoken",
-    "pypdf", "sentence-transformers", "rank-bm25",
-    "gradio", "openai", "langgraph", "langchain-core"
-]
-print(" Checking dependencies...")
-for pkg in pkgs:
-    subprocess.run([sys.executable, "-m", "pip", "install", pkg, "-q"],
-                   capture_output=True)
-print(" Dependencies ready")
+# import subprocess, sys
+# pkgs = [
+#     "langchain", "langchain-openai", "langchain-community",
+#     "langchain-text-splitters", "faiss-cpu", "tiktoken",
+#     "pypdf", "sentence-transformers", "rank-bm25",
+#     "gradio", "openai", "langgraph", "langchain-core"
+# ]
+# print(" Checking dependencies...")
+# for pkg in pkgs:
+#     subprocess.run([sys.executable, "-m", "pip", "install", pkg, "-q"],
+#                    capture_output=True)
+# print(" Dependencies ready")
 
 # ── Imports ───────────────────────────────────────────────────────────────────
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
@@ -48,7 +48,6 @@ from langchain_core.tools import tool
 from sentence_transformers import CrossEncoder
 from langgraph.graph import StateGraph, END
 import gradio as gr
-import spaces
 
 print(" Imports done")
 
@@ -117,7 +116,6 @@ pipeline = {
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
-@spaces.GPU
 def rerank_docs(query: str, docs: list, top_k: int):
     if not docs:
         return docs, []
@@ -805,7 +803,6 @@ User Question
 # ── Launch ────────────────────────────────────────────────────────────────────
 # ── Launch ────────────────────────────────────────────────────────────────────
 import gradio as gr
-import spaces
 gr.close_all()          # close any previous instance first
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 7860)))
