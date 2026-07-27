@@ -1,7 +1,5 @@
-#  Agentic RAG PDF Chatbot
 ---
 title: Rag Pipeline Pdf Chatbot
-emoji: 📄
 colorFrom: blue
 colorTo: purple
 sdk: gradio
@@ -9,6 +7,9 @@ sdk_version: "5.9.1"
 app_file: app.py
 pinned: false
 ---
+
+#  Agentic RAG PDF Chatbot
+
 > **Upload any PDF → Ask anything → Get precise answers powered by LangGraph + OpenAI**
 
 An end-to-end **Retrieval-Augmented Generation (RAG)** pipeline with a **LangGraph agentic layer** that intelligently routes every question to the best handler — document search, calculator, summariser, or general knowledge.
