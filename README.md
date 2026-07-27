@@ -3,7 +3,7 @@ title: Rag Pipeline Pdf Chatbot
 colorFrom: blue
 colorTo: purple
 sdk: gradio
-sdk_version: "5.9.1"
+sdk_version: "4.44.1"
 app_file: app.py
 pinned: false
 ---
