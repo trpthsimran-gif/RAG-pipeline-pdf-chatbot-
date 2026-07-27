@@ -129,12 +129,12 @@ def rerank_docs(query: str, docs: list, top_k: int):
 
 def compute_confidence(scores: list):
     if not scores:
-        return 0.0, "Unknown"
+        return 0.0, "Unknown", ""
     avg = sum(sigmoid(s) for s in scores) / len(scores)
     pct = round(avg * 100, 1)
-    if pct >= 75:   return pct, "High",   
-    elif pct >= 45: return pct, "Medium", 
-    else:           return pct, "Low",    
+    if pct >= 75:   return pct, "High", ""
+    elif pct >= 45: return pct, "Medium", ""
+    else:           return pct, "Low", ""   
 
 def format_context(docs):
     return "\n\n".join(
@@ -542,7 +542,7 @@ def chat_agent(question, history):
             "question": question, "rewritten_query": question,
             "retrieved_docs": [], "reranked_docs": [], "rerank_scores": [],
             "context": "", "answer": "", "sources_text": "",
-            "confidence": 0, "conf_label": "Unknown", "conf_emoji": ,
+            "confidence": 0, "conf_label": "Unknown", "conf_emoji": "",
             "route": "retrieve", "messages": [],
         }
         fs = agent_graph.invoke(init)
@@ -551,7 +551,7 @@ def chat_agent(question, history):
         sources_text = fs.get("sources_text", "")
         conf         = fs.get("confidence", 0)
         conf_label   = fs.get("conf_label", "Unknown")
-        conf_emoji   = fs.get("conf_emoji", )
+        conf_emoji   = fs.get("conf_emoji", "")
         route        = fs.get("route", "retrieve")
         rewritten    = fs.get("rewritten_query", question)
 
