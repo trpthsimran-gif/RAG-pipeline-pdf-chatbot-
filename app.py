@@ -664,7 +664,7 @@ EXAMPLES = [
 
 print(" Building Gradio UI…")
 
-with gr.Blocks(title="Agentic RAG") as demo:
+with gr.Blocks(title="Agentic RAG", theme=gr.themes.Soft()) as demo:
 
     gr.Markdown("#  RAG Document Chat  +  LangGraph Agent")
     gr.Markdown(
@@ -805,6 +805,4 @@ User Question
 import gradio as gr
 gr.close_all()          # close any previous instance first
 
-demo.launch(
-    theme=gr.themes.Soft()   # no server_port — Gradio picks a free one automatically
-)
+demo.launch()
